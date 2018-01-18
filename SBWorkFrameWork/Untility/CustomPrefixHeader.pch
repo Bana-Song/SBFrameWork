@@ -1,0 +1,98 @@
+//
+//  CustomPrefixHeader.pch
+//  QWLProject
+//
+//  Created by pg on 16/3/11.
+//  Copyright © 2016年 shiwenbin. All rights reserved.
+//
+
+#ifndef CustomPrefixHeader_pch
+#define CustomPrefixHeader_pch
+
+/* 系统相关 */
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width //屏幕宽度
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height //屏幕高度
+#define SystemVersion [[UIDevice currentDevice] systemVersion].floatValue //系统版本
+#define isSystemVersion [[UIDevice currentDevice] systemVersion].floatValue > 9.0 ? 1:0 //判断系统版本
+
+
+//颜色值定义颜色 (例如:RGB:255,255,255)
+#define SBColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r / 255.0 )  green:(g / 255.0)  blue:(b / 255.0) alpha:(a / 1.0)]
+
+//十六进制转十进制(例如:0x + FFFFFF)
+#define SBColorWith0xRGB(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:(a / 1.0)]
+
+//自定义日志 －－－－ 为了DEBUG状态下的测试日志
+#if DEBUG
+#define SBLog(fmt,...) NSLog(@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d]\n" "%@",__FILE__, __FUNCTION__, __LINE__, [NSString stringWithFormat:(fmt), ##__VA_ARGS__]);
+#else
+#define SBLog(...);
+#endif
+
+/* 常用正则 */
+#define mailRegex @"^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$" //邮箱
+#define userNameRegex @"^[a-z0-9_-]{6,20}$" //用户名 字母加数字
+#define phonenumRegex @"^1[0-9]{10}$" //电话
+#define httpUrlRegex @"^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$" //网址
+#define ipRegex @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" //ip地址
+#define passWordRegex @"^[a-zA-Z0-9_\u4e00-\u9fa5]+$" //密码
+#define IDCardRegex @"\d{15}|\d{18}" //身份证号国内
+
+/* Custom文件  */
+#import "CustomCollectionVC.h"
+#import "CustomNAVC.h"
+#import "CustomVC.h"
+#import "CustomTableVC.h"
+
+
+#import "CustomTableCell.h"
+#import "CustomTableCell.h"
+#import "CustomUIView.h"
+#import "CustomTableView.h"
+#import "CustomLabel.h"
+#import "CustomButton.h"
+#import "CustomTextView.h"
+
+/* 扩展文件 */
+
+#import "NSString_Extension.h"
+#import "NSDate_Extension.h"
+#import "UIImage_Extension.h"
+
+/* 第三方库开始 */
+
+#import "MJRefresh.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
+#import "JSONModel.h"
+#import "UIImageView+WebCache.h"
+
+/* 第三方库结束 */
+
+
+/* 通用文件 */
+
+#import "SBSharedMenu.h"
+#import "SBNetWork.h"
+#import "SBProgressHUD.h"
+#import "SBModel.h"
+#import "NetWorkListen.h"
+
+/* 通用文件结束 */
+
+/* 其他 */
+
+#import "UserInfoModel.h"
+
+/* */
+
+#endif
+
+
+
+
+/** 程序中用到的头文件 **/
+
+
+
+
